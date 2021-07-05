@@ -1,0 +1,71 @@
+<mvc:View displayBlock="true" controllerName="com.minda.PPM.controller.PPM" height="100%" xmlns="sap.uxap" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<m:Page id="page" title="PPM">
+		<m:headerContent>
+			<m:Button icon="sap-icon://excel-attachment" text="EXPORT TO EXCEL" type="Emphasized" press="onPressDownload"/>
+		</m:headerContent>
+		<m:content>
+			<m:VBox class="customVBoxClass">
+				<m:OverflowToolbar>
+					<m:content>
+						<m:Title text="{detailViewModel>/tableTitle}"/>
+						<m:ToolbarSpacer/>
+						<m:SearchField width="25%" placeholder="Search Material Code..." liveChange="onMaterialCodeSearch"/>
+						<m:SearchField width="25%" placeholder="Search Material Name..." liveChange="onMaterialNameSearch"/>
+						<m:DateRangeSelection showFooter="true" width="25%" change="handleDateRangeChange" placeholder="From / To Date"
+							dateValue="{detailViewModel>/fromDate}" secondDateValue="{detailViewModel>/toDate}"/>
+					</m:content>
+				</m:OverflowToolbar>
+				<m:ScrollContainer vertical="true" width="100%" height="650px" horizontal="true" class="sapMSCCss">
+					<m:Table width="150%" id="table" noDataText="There is no data, select date range..." items="{detailViewModel>/items}"
+						sticky="HeaderToolbar,ColumnHeaders">
+						<m:columns>
+							<m:Column demandPopin="true" minScreenWidth="Phone">
+								<m:Label design="Bold" text="MATERIAL CODE" wrapping="true"/>
+							</m:Column>
+							<m:Column demandPopin="true" minScreenWidth="Phone">
+								<m:Label design="Bold" text="MATERIAL NAME" wrapping="true"/>
+							</m:Column>
+							<m:Column demandPopin="true" minScreenWidth="Desktop">
+								<m:Label design="Bold" text="DELIVERED QTY." wrapping="true"/>
+							</m:Column>
+							<m:Column demandPopin="true" minScreenWidth="Desktop">
+								<m:Label design="Bold" text="REJECTION QTY." wrapping="true"/>
+							</m:Column>
+							<m:Column demandPopin="true" minScreenWidth="Desktop">
+								<m:Label design="Bold" text="PPM" wrapping="true"/>
+							</m:Column>
+							<m:Column demandPopin="true" minScreenWidth="Tablet">
+								<m:Label design="Bold" text="PLANT CODE" wrapping="true"/>
+							</m:Column>
+							<m:Column demandPopin="true" minScreenWidth="Tablet">
+								<m:Label design="Bold" text="PLANT NAME" wrapping="true"/>
+							</m:Column>
+							<m:Column demandPopin="true" minScreenWidth="Phone">
+								<m:Label design="Bold" text="VENDOR CODE" wrapping="true"/>
+							</m:Column>
+							<m:Column demandPopin="true" minScreenWidth="Phone">
+								<m:Label design="Bold" text="VENDOR NAME" wrapping="true"/>
+							</m:Column>
+						</m:columns>
+						<m:items>
+							<m:ColumnListItem type="Inactive">
+								<m:cells>
+									<m:Text text="{detailViewModel>MaterialCode}"/>
+									<m:Text text="{detailViewModel>MaterialName}"/>
+									<m:Text text="{detailViewModel>DeliveredQty}"/>
+									<m:Text text="{detailViewModel>RejectionQuantity}"/>
+									<m:Text text="{detailViewModel>Ppm}"/>
+									<m:Text text="{detailViewModel>PlantCode}"/>
+									<m:Text text="{detailViewModel>PlantName}"/>
+									<m:Text text="{detailViewModel>VendorCode}"/>
+									<m:Text text="{detailViewModel>VendorName}"/>
+								</m:cells>
+							</m:ColumnListItem>
+						</m:items>
+					</m:Table>
+				</m:ScrollContainer>
+			</m:VBox>
+		</m:content>
+	</m:Page>
+</mvc:View>
