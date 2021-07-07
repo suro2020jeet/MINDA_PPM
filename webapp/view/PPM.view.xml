@@ -1,6 +1,6 @@
 <mvc:View displayBlock="true" controllerName="com.minda.PPM.controller.PPM" height="100%" xmlns="sap.uxap" xmlns:mvc="sap.ui.core.mvc"
 	xmlns:m="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
-	<m:Page id="page" title="PPM">
+	<m:Page id="page">
 		<m:headerContent>
 			<m:Button icon="sap-icon://excel-attachment" text="EXPORT TO EXCEL" type="Emphasized" press="onPressDownload"/>
 		</m:headerContent>
@@ -8,11 +8,12 @@
 			<m:VBox class="customVBoxClass">
 				<m:OverflowToolbar>
 					<m:content>
-						<m:Title text="{detailViewModel>/tableTitle}"/>
+						<!--<m:Title text="{detailViewModel>/tableTitle}"/>-->
+						<m:Link class="sapUiSmallMarginRight" text="Advanced Search" press="onPressAdvancedSearch" visible="{detailViewModel>/showAdvancedSearch}"/>
 						<m:ToolbarSpacer/>
 						<m:SearchField width="25%" placeholder="Search Material Code..." liveChange="onMaterialCodeSearch"/>
 						<m:SearchField width="25%" placeholder="Search Material Name..." liveChange="onMaterialNameSearch"/>
-						<m:DateRangeSelection showFooter="true" width="25%" change="handleDateRangeChange" placeholder="From / To Date"
+						<m:DateRangeSelection displayFormat='dd/MM/YYYY' showFooter="true" width="25%" change="handleDateRangeChange" placeholder="From / To Date"
 							dateValue="{detailViewModel>/fromDate}" secondDateValue="{detailViewModel>/toDate}"/>
 					</m:content>
 				</m:OverflowToolbar>
