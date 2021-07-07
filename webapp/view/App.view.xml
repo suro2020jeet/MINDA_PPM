@@ -1,9 +1,0 @@
-<mvc:View controllerName="com.minda.PPM.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f">
-	<Shell id="shell">
-		<App id="App">
-			<pages>
-			
-			</pages>
-		</App>
-	</Shell>
-</mvc:View>
